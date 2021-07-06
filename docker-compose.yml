@@ -1,0 +1,30 @@
+version: "3.3"
+services:
+  jwt-authentication:
+    build:
+      context: apps/jwt-authentication-service
+      args:
+        db_url: jdbc:postgresql://host.docker.internal/jwtauthentication-test
+        db_username: jwtauthentication-test
+        db_password: jwtauthentication-test
+    ports:
+      - 8080:8080
+    environment:
+      ILYES_JWT_SECRET: $ILYES_JWT_SECRET
+      ILYES_BASIC_AUTH_CREDENTIALS_USERNAME: $ILYES_BASIC_AUTH_CREDENTIALS_USERNAME
+      ILYES_BASIC_AUTH_CREDENTIALS_PASSWORD: $ILYES_BASIC_AUTH_CREDENTIALS_PASSWORD
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db/jwtauthentication
+      SPRING_DATASOURCE_USERNAME: jwtauthentication
+      SPRING_DATASOURCE_PASSWORD: jwtauthentication
+  db:
+    build: tools/postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgressVolume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_MULTIPLE_DATABASES: jwtauthentication,jwtauthentication-test
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+volumes:
+  postgressVolume:

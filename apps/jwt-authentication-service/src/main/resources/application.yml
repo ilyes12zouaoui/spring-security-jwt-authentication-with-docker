@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jwtauthentication
+    username: jwtauthentication
+    password: jwtauthentication
+ilyes:
+  jwt:
+    secret: verylongsecretverylongsecretverylongsecretverylongsecretverylongsecretverylongsecretverylongsecret
+  basic-auth:
+# credentials used for basic authentication, for api/internal/** endpoints which are expected to be called by another internal microservice
+    credentials:
+      username: ilyes
+      password: zouaoui
