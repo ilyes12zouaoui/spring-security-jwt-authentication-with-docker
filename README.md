@@ -2,10 +2,10 @@ In order to learn more about spring security. How to set up jwt authentication a
 where you can register and login with users using jwt authentication, using docker-compose, postgres db, flyway for database migration, testcontainer to automaticly create database for integration tests.
 
 To run the project follow these steps:
-1- create a .env file you can copy the env.example file
-2- run the command docker-compose up db
-3- run the command docker-compose up jwt-authentication (run this after the database is up and running)
-4- use postman collection "apps/jwt-authentication-service/ilyes-zouaoui-jwt-authentication.postman_collection.json" to interact with the application
+- create a .env file you can copy the env.example file
+- run the command docker-compose up db
+- run the command docker-compose up jwt-authentication (run this after the database is up and running)
+- use postman collection "apps/jwt-authentication-service/ilyes-zouaoui-jwt-authentication.postman_collection.json" to interact with the application
 
 notes:
 - the sql script V1.1__InserAdminInUsersTable.sql, create a user with email 'admin@email.test' and password 'admin' and role 'ROLE_ADMIN'.
